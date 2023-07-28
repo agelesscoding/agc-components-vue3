@@ -8,13 +8,27 @@ const file = (type) => `dist/${pkg.name}.${type}.js`
 
 /** @type {import('rollup').RollupOptions} */
 const config = {
-  input: 'src/App.vue',
+  input: 'src/components/AgcText/AgcText.vue',
   output: {
     file: file('esm'),
     format: 'es'
   },
-  plugins: [vue(), nodeResolve(), typescript(), css({ output: 'bundle.css' })],
-  external: ['vue']
+  plugins: [
+    vue(),
+    nodeResolve(),
+    typescript({
+      tsconfigOverride: {
+        compilerOptions: {
+          declaration: true,
+          paths: {
+            '@/*': ['./src/*']
+          }
+        }
+      }
+    }),
+    css({ output: 'bundle.css' })
+  ],
+  external: ['vue', 'lodash-es']
 }
 
 export default config
