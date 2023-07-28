@@ -8,7 +8,7 @@ const file = (type) => `dist/${pkg.name}.${type}.js`
 
 /** @type {import('rollup').RollupOptions} */
 const config = {
-  input: 'src/components/AgcText/AgcText.vue',
+  input: 'src/index.ts',
   output: {
     file: file('esm'),
     format: 'es'
@@ -18,6 +18,7 @@ const config = {
     nodeResolve(),
     typescript({
       tsconfigOverride: {
+        include: ['src/shims-vue.d.ts'],
         compilerOptions: {
           declaration: true,
           paths: {
