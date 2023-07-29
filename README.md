@@ -1,52 +1,39 @@
-# agc-components-vue3
+# AGC Project Component Library
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue3 Writing and Packaging AGC Project Component Library.
 
-## Recommended IDE Setup
+## Quick Start
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+Install the business component library to the project:
 
 ```sh
-npm install
+$ npm install @agelesscoding/agc-components-vue3
 ```
 
-### Compile and Hot-Reload for Development
+or
 
 ```sh
-npm run dev
+$ yarn add @agelesscoding/agc-components-vue3
 ```
 
-### Type-Check, Compile and Minify for Production
+Use in the project:
 
-```sh
-npm run build
+```ts
+// src/main.ts
+import agcComponentsVue3 from '@agelesscoding/agc-components-vue3'
+import { createApp } from 'vue'
+import App from './App.vue'
+import '@agelesscoding/agc-components-vue3/dist/bundle.css'
+
+const app = createApp(App)
+app.use(agcComponentsVue3)
+app.mount('#app')
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Features
 
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- Vue3
+- TypeScript
+- [ ] Unit test
+- [ ] Validate before submitting release
+- [ ] Travis implements automatic release
