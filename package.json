@@ -1,6 +1,6 @@
 {
   "name": "@agelesscoding/agc-components-vue3",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
@@ -10,6 +10,18 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "license": "MIT",
+  "keywords": [
+    "Component",
+    "UI",
+    "vue3"
+  ],
+  "description": "Vue3 Writing and Packaging AGC Project Component Library",
+  "author": "smpower <rf.wangchn@foxmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agelesscoding/agc-components-vue3"
   },
   "scripts": {
     "dev": "vite",
