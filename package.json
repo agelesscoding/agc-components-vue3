@@ -1,8 +1,10 @@
 {
-  "name": "agc-components-vue3",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@agelesscoding/agc-components-vue3",
+  "version": "0.0.1",
   "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "npm run clean && npm run build:esm && npm run build:umd",
