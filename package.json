@@ -5,14 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
+    "build": "npm run clean && npm run build:esm && npm run build:umd",
+    "build:esm": "rollup -c build/rollup.esm.config.js",
+    "build:umd": "rollup -c build/rollup.umd.config.js",
+    "clean": "rimraf dist",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "build:esm": "rollup -c build/rollup.config.js"
+    "format": "prettier --write src/"
   },
   "peerDependencies": {
     "vue": "^3.3.4"
@@ -35,6 +37,7 @@
     "jsdom": "^22.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
     "rollup": "^3.27.0",
     "rollup-plugin-css-only": "^4.3.0",
     "rollup-plugin-typescript2": "^0.35.0",

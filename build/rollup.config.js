@@ -4,7 +4,16 @@ import typescript from 'rollup-plugin-typescript2'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import pkg from '../package.json' assert { type: 'json' }
 
-const file = (type) => `dist/${pkg.name}.${type}.js`
+const file = (type) => `dist/index.${type}.js`
+const tsconfigOverride = {
+  include: ['src/shims-vue.d.ts'],
+  compilerOptions: {
+    declaration: true,
+    paths: {
+      '@/*': ['./src/*']
+    }
+  }
+}
 
 /** @type {import('rollup').RollupOptions} */
 const config = {
@@ -13,23 +22,9 @@ const config = {
     file: file('esm'),
     format: 'es'
   },
-  plugins: [
-    vue(),
-    nodeResolve(),
-    typescript({
-      tsconfigOverride: {
-        include: ['src/shims-vue.d.ts'],
-        compilerOptions: {
-          declaration: true,
-          paths: {
-            '@/*': ['./src/*']
-          }
-        }
-      }
-    }),
-    css({ output: 'bundle.css' })
-  ],
+  plugins: [vue(), nodeResolve(), typescript({ tsconfigOverride }), css({ output: 'bundle.css' })],
   external: ['vue', 'lodash-es']
 }
 
 export default config
+export { pkg, file }
