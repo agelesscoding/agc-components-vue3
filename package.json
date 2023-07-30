@@ -29,13 +29,12 @@
     "build:esm": "rollup -c build/rollup.esm.config.js",
     "build:umd": "rollup -c build/rollup.umd.config.js",
     "clean": "rimraf dist",
-    "preview": "vite preview",
-    "test:unit": "vitest",
-    "build-only": "vite build",
+    "test:watch": "vitest",
+    "test": "vitest --run",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --max-warnings 5",
     "format": "prettier --write src/",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run format && npm run lint && npm run test && npm run build"
   },
   "peerDependencies": {
     "vue": "^3.3.4"
