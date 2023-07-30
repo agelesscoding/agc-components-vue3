@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts">
-import { pick, without } from 'lodash-es'
-import { computed, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 
 import useComponentCommon from '@/hooks/useComponentCommon'
 import { transformToComponentProps, textDefaultProps, textStylePropNames } from '@/defaultProps'

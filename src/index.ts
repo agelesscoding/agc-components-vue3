@@ -1,4 +1,5 @@
 import AgcText from './components/AgcText'
+import AgcImage from './components/AgcImage'
 import type { App } from 'vue'
 
 export { textDefaultProps, textStylePropNames, imageDefaultProps, imageStylePropsNames } from './defaultProps'
@@ -6,6 +7,7 @@ export type { TextComponentProps, ImageComponentProps } from './defaultProps'
 
 const components = [
   AgcText,
+  AgcImage
 ]
 
 const install = (app: App) => {
@@ -16,6 +18,7 @@ const install = (app: App) => {
 
 export {
   AgcText,
+  AgcImage,
   install
 }
 export default {
