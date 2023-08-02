@@ -29,6 +29,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - run: npm run lint
 
   # unit test
@@ -37,6 +38,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - run: npm run test
 
   # publish to npm
