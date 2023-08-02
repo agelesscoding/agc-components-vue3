@@ -1,5 +1,5 @@
-import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { flushPromises, mount, shallowMount, type VueWrapper } from '@vue/test-utils'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { shallowMount } from '@vue/test-utils'
 
 import AgcText from '.'
 import { textDefaultProps } from '@/defaultProps'
