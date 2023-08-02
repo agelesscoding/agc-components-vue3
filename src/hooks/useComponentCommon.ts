@@ -1,14 +1,14 @@
 import { computed } from 'vue'
 import { pick } from 'lodash-es'
-import type { TextComponentProps } from '@/defaultProps'
+import type { CommonComponentProps } from '@/defaultProps'
 
 const useComponentCommon = (
-  props: Readonly<Partial<TextComponentProps & { isEditing: boolean }>>,
+  props: Readonly<Partial<CommonComponentProps & { isEditing: boolean }>>,
   picks: string[]
 ) => {
   const styleProps = computed(() => pick(props, picks))
   const handleClick = () => {
-    if (props.actionType === 'url' && props.url) {
+    if (props.actionType === 'url' && props.url && !props.isEditing) {
       window.open(props.url)
     }
   }
